@@ -2,6 +2,8 @@
 # !pip install torch
 # !pip install -U langchain-community
 # !pip install instructorembedding
+# !pip install -U sentence-transformers==2.2.2
+# !pip install chromadb
 
 from langchain.schema.document import Document
 import os
@@ -24,8 +26,11 @@ class data_preprocessing:
                 content = file.read()
                 docs.append(Document(page_content = content))
 
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=5000,
-                                                       chunk_overlap=64)
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=5000,
+            chunk_overlap=64
+            )
+
         self.texts = text_splitter.split_documents(docs)
         return self
 
@@ -36,5 +41,9 @@ class data_preprocessing:
         self.embeddings = HuggingFaceInstructEmbeddings(
             model_name=model_name, model_kwargs={"device": DEVICE}
         )
-        db = Chroma.from_documents(self.texts, self.embeddings, persist_directory="vector_db")
+        db = Chroma.from_documents(
+            self.texts,
+            self.embeddings,
+            persist_directory="vector_db"
+            )
         return db

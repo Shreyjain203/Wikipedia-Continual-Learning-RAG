@@ -3,3 +3,4 @@ __pycache__
 *.ipynb
 data/
 .DS_Store
+vector_db

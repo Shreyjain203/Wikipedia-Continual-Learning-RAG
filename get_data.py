@@ -8,7 +8,10 @@ class get_data:
         self.text = text
         
     def find_title_list(self):
-        return wikipedia.search(self.text, results = 5)
+        return wikipedia.search(
+            self.text,
+            results=5
+            )
         
     def get_data(self, title):
         #find the data
