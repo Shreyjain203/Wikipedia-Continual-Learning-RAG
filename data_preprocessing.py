@@ -1,10 +1,15 @@
+# !pip install langchain
+# !pip install torch
+# !pip install -U langchain-community
+
 from langchain.schema.document import Document
 import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import torch
-from langchain.embeddings import HuggingFaceInstructEmbeddings
+from langchain_community.embeddings import HuggingFaceInstructEmbeddings
+from langchain.vectorstores import Chroma
 
-class data_preprocessing():
+class data_preprocessing:
     def __init__(self) -> None:
         pass
         
@@ -18,14 +23,17 @@ class data_preprocessing():
                 content = file.read()
                 docs.append(Document(page_content = content))
 
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=5000, chunk_overlap=64)
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=5000,
+                                                       chunk_overlap=64)
         self.texts = text_splitter.split_documents(docs)
-        return
+        return self
 
-    def create_embedding(self):
+    def create_embedding(self,
+                         model_name="hkunlp/instructor-large"):
         DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
 
         self.embeddings = HuggingFaceInstructEmbeddings(
-            model_name="hkunlp/instructor-large", model_kwargs={"device": DEVICE}
+            model_name=model_name, model_kwargs={"device": DEVICE}
         )
-        return
+        db = Chroma.from_documents(self.texts, self.embeddings, persist_directory="vector_db")
+        return db
