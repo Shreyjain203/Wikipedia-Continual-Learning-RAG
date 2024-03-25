@@ -1,13 +1,14 @@
 # !pip install langchain
 # !pip install torch
 # !pip install -U langchain-community
+# !pip install instructorembedding
 
 from langchain.schema.document import Document
 import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import torch
 from langchain_community.embeddings import HuggingFaceInstructEmbeddings
-from langchain.vectorstores import Chroma
+from langchain_community.vectorstores import Chroma
 
 class data_preprocessing:
     def __init__(self) -> None:
