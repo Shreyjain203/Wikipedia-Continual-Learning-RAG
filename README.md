@@ -11,9 +11,7 @@ Still working on it.
 2. Install the required packages: `pip install -r requirements.txt`
 
 ## Usage
-1. Run `get_data.py` to download data from Wikipedia and save it as a text file.
-2. Run `data_preprocessing.py` to preprocess the data into vectors.
-3. Run `main.py` to build the RAG model and interact with it.
+Run `main.py` to build the RAG model and interact with it.
 
 ## Contributors
 <ul><li>Shrey Jain (Me)</li></ul>
