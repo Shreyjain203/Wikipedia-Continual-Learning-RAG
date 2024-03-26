@@ -4,6 +4,7 @@ from transformers import pipeline
 from langchain import HuggingFacePipeline
 import torch
 
+
 def pipeline(
         model_name_or_path="TheBloke/Llama-2-13B-chat-GPTQ",
         model_basename="model"
@@ -23,8 +24,15 @@ def pipeline(
         auto_devices=True
     )
 
-    tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, use_fast=True)
-    streamer = TextStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_name_or_path,
+        use_fast=True
+        )
+    streamer = TextStreamer(
+        tokenizer,
+        skip_prompt=True,
+        skip_special_tokens=True
+        )
 
     text_pipeline = pipeline(
         "text-generation",
@@ -34,8 +42,11 @@ def pipeline(
         temperature=0,
         top_p=0.95,
         repetition_penalty=1.15,
-        streamer=streamer,
+        streamer=streamer
     )
 
-    return HuggingFacePipeline(pipeline=text_pipeline, model_kwargs={"temperature": 0})
+    return HuggingFacePipeline(
+        pipeline=text_pipeline,
+        model_kwargs={"temperature": 0}
+        )
     
