@@ -16,4 +16,4 @@ Still working on it.
 3. Run `main.py` to build the RAG model and interact with it.
 
 ## Contributors
-<ul><li>Shrey Jain(Me)</li></ul>
+<ul><li>Shrey Jain (Me)</li></ul>
