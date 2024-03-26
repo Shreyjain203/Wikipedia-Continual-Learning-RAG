@@ -7,7 +7,7 @@ def get_prompt_template():
                     best describes the issue that user is facing with his device. 
                     The context will also have the solution. Return only this 
                     solution broken down into nicely formatted steps. If you don't
-                    know the answer, just say that you don't know, don't try to 
+                    know the answer, just print "I don't know", don't try to 
                     make up an answer.
                     """
     input_prompt = """{context}
