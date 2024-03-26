@@ -6,13 +6,13 @@ This project utilizes data extracted from Wikipedia to build a Retriever-Aware G
 ## Model Description
 
 ## Installation
-<ol><li>Clone the repository: `git clone https://github.com/shreyjain203/Wikipedia-Continual-Learning-RAG.git`</li>
-<li>Install the required packages: `pip install -r requirements.txt`</li></ol>
+1. Clone the repository: `git clone https://github.com/shreyjain203/Wikipedia-Continual-Learning-RAG.git`
+2. Install the required packages: `pip install -r requirements.txt`
 
 ## Usage
-<ol><li>Run get_data.py to download data from Wikipedia and save it as a text file.</li>
-<li>Run data_preprocessing.py to preprocess the data into vectors.</li>
-<li>Run main.py to build the RAG model and interact with it.</li></ol>
+1. Run `get_data.py` to download data from Wikipedia and save it as a text file.
+2. Run `data_preprocessing.py` to preprocess the data into vectors.
+3. Run `main.py` to build the RAG model and interact with it.
 
 ## Contributors
 <ul><li>Shrey Jain</li></ul>
