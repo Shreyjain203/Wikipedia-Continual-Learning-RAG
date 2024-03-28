@@ -1,0 +1,9 @@
+langchain
+torch
+langchain-community
+instructorembedding
+sentence-transformers==2.2.2
+chromadb
+wikipedia
+nltk
+auto_gptq
